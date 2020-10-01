@@ -50,6 +50,11 @@ module.exports = {
     let responsiveImage = this.addons.find((a) => a.name === 'ember-responsive-image');
     return responsiveImage.contentFor(...arguments);
   },
+
+  postprocessTree() {
+    let responsiveImage = this.addons.find((a) => a.name === 'ember-responsive-image');
+    return responsiveImage.postprocessTree.apply(this, ...arguments);
+  },
 };
 
 // Polyfill [Addon._findHost](https://ember-cli.com/api/classes/Addon.html#method__findHost) for older versions of ember-cli
